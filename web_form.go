@@ -12,9 +12,9 @@ func serveForm(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/html")
 		w.Write([]byte(`
 			<form method="POST">
-				<input type="text" name="first_name">
-				<input type="text" name="last_name">
-				<input type="text" name="phone">
+				<p>First name: <input type="text" name="first_name"></p>
+				<p>Last name: <input type="text" name="last_name"></p>
+				<p>Phone: <input type="text" name="phone"></p>
 				<input type="submit">
 			</form>
 		`))
