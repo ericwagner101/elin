@@ -2,7 +2,11 @@ package main
 
 import "fmt"
 
-// make map
+func main() {
+	m := makeMap()
+	fmt.Println("v1: ", getValue(m, "k2"))
+	printValue(m, "k2")
+}
 
 func makeMap() map[string]int {
 	m := make(map[string]int)
@@ -21,5 +25,3 @@ func getValue(m map[string]int, key string) int {
 func printValue(m map[string]int, key string) {
 	fmt.Println("v2: ", m[key])
 }
-
-
