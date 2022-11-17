@@ -2,11 +2,6 @@ package main
 
 import "net/http"
 
-// html form
-// first name
-// last name
-// phone
-
 func serveForm(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		w.Header().Set("Content-Type", "text/html")
