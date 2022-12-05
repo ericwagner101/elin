@@ -22,8 +22,8 @@ func httpHandler(w http.ResponseWriter, r *http.Request) {
 // Gaussian noise with variance
 func createGaussianNoiseImage(width, height, variance int) *image.RGBA {
 	img := image.NewRGBA(image.Rect(0, 0, width, height))
-	for x := 0; x < width; x++ {
-		for y := 0; y < height; y++ {
+	for x := 0; x <= width; x++ {
+		for y := 0; y <= height; y++ {
 			img.Set(x, y, color.RGBA{
 				R: uint8(rand.NormFloat64()*float64(variance) + 128),
 				G: uint8(rand.NormFloat64()*float64(variance) + 128),
