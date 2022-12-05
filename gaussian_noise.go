@@ -13,8 +13,13 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
-// Gaussian noise with variance
+func httpHandler(w http.ResponseWriter, r *http.Request) {
+	img := createGaussianNoiseImage(512, 512, 64)
+	w.Header().Set("Content-Type", "image/png")
+	png.Encode(w, img)
+}
 
+// Gaussian noise with variance
 func createGaussianNoiseImage(width, height, variance int) *image.RGBA {
 	img := image.NewRGBA(image.Rect(0, 0, width, height))
 	for x := 0; x < width; x++ {
@@ -28,10 +33,4 @@ func createGaussianNoiseImage(width, height, variance int) *image.RGBA {
 		}
 	}
 	return img
-}
-
-func httpHandler(w http.ResponseWriter, r *http.Request) {
-	img := createGaussianNoiseImage(512, 512, 64)
-	w.Header().Set("Content-Type", "image/png")
-	png.Encode(w, img)
 }
